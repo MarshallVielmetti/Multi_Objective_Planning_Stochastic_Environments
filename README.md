@@ -239,6 +239,107 @@ crosses show active adversaries for particle 1 only.
 | ![Reactive SMO-RRT fresh rollout](figures/paper/trajectory-000-reactive_rrt-point0.gif) | ![Target-only SMO-RRT fresh rollout](figures/paper/trajectory-000-target_rrt-point1.gif) |
 | [PNG](figures/paper/trajectory-000-reactive_rrt-point0.png) · [PDF](figures/paper/trajectory-000-reactive_rrt-point0.pdf) · [SVG](figures/paper/trajectory-000-reactive_rrt-point0.svg) · [metadata](figures/paper/trajectory-000-reactive_rrt-point0.json) | [PNG](figures/paper/trajectory-000-target_rrt-point1.png) · [PDF](figures/paper/trajectory-000-target_rrt-point1.pdf) · [SVG](figures/paper/trajectory-000-target_rrt-point1.svg) · [metadata](figures/paper/trajectory-000-target_rrt-point1.json) |
 
+### Complete environment-0 Pareto portfolios
+
+Every policy returned in the environment-0 construction Pareto portfolio is shown
+below, grouped by planner (55 policies total). Each label reports the independent
+4,096-particle fresh evaluation: risk is the observed capture count and rate, while
+cost is the fresh expected cost followed by its normalization using
+$\bar{C}=420$. Because the portfolios were selected from construction samples, the
+fresh estimates can reorder the policies or make one returned member dominate another;
+the tables intentionally retain every returned policy rather than filtering them again.
+
+The compact animations use 16 particles, the corresponding saved evaluation-stream
+seed, and at most 48 frames. They are qualitative views of policy behavior; the numeric
+labels come from the 4,096-particle evaluation, not from counting the animated particles.
+
+#### Reactive SMO-SST (12 points)
+
+| **Point 1**<br>risk = 3/4096 = 0.00073<br>cost = 140.013; cost / $\bar{C}$ = 0.3334 | **Point 2**<br>risk = 24/4096 = 0.00586<br>cost = 135.540; cost / $\bar{C}$ = 0.3227 | **Point 3**<br>risk = 96/4096 = 0.02344<br>cost = 128.110; cost / $\bar{C}$ = 0.3050 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-SST point 1](figures/pareto_env_000/reactive_sst/point-00.gif) | ![Reactive SMO-SST point 2](figures/pareto_env_000/reactive_sst/point-01.gif) | ![Reactive SMO-SST point 3](figures/pareto_env_000/reactive_sst/point-02.gif) |
+
+| **Point 4**<br>risk = 121/4096 = 0.02954<br>cost = 125.286; cost / $\bar{C}$ = 0.2983 | **Point 5**<br>risk = 115/4096 = 0.02808<br>cost = 125.018; cost / $\bar{C}$ = 0.2977 | **Point 6**<br>risk = 107/4096 = 0.02612<br>cost = 98.419; cost / $\bar{C}$ = 0.2343 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-SST point 4](figures/pareto_env_000/reactive_sst/point-03.gif) | ![Reactive SMO-SST point 5](figures/pareto_env_000/reactive_sst/point-04.gif) | ![Reactive SMO-SST point 6](figures/pareto_env_000/reactive_sst/point-05.gif) |
+
+| **Point 7**<br>risk = 147/4096 = 0.03589<br>cost = 97.708; cost / $\bar{C}$ = 0.2326 | **Point 8**<br>risk = 944/4096 = 0.23047<br>cost = 96.781; cost / $\bar{C}$ = 0.2304 | **Point 9**<br>risk = 1815/4096 = 0.44312<br>cost = 96.261; cost / $\bar{C}$ = 0.2292 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-SST point 7](figures/pareto_env_000/reactive_sst/point-06.gif) | ![Reactive SMO-SST point 8](figures/pareto_env_000/reactive_sst/point-07.gif) | ![Reactive SMO-SST point 9](figures/pareto_env_000/reactive_sst/point-08.gif) |
+
+| **Point 10**<br>risk = 3635/4096 = 0.88745<br>cost = 95.747; cost / $\bar{C}$ = 0.2280 | **Point 11**<br>risk = 4053/4096 = 0.98950<br>cost = 95.658; cost / $\bar{C}$ = 0.2278 | **Point 12**<br>risk = 4096/4096 = 1.00000<br>cost = 93.218; cost / $\bar{C}$ = 0.2219 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-SST point 10](figures/pareto_env_000/reactive_sst/point-09.gif) | ![Reactive SMO-SST point 11](figures/pareto_env_000/reactive_sst/point-10.gif) | ![Reactive SMO-SST point 12](figures/pareto_env_000/reactive_sst/point-11.gif) |
+
+#### Target-only SMO-SST (18 points)
+
+| **Point 1**<br>risk = 18/4096 = 0.00439<br>cost = 136.966; cost / $\bar{C}$ = 0.3261 | **Point 2**<br>risk = 45/4096 = 0.01099<br>cost = 136.159; cost / $\bar{C}$ = 0.3242 | **Point 3**<br>risk = 71/4096 = 0.01733<br>cost = 136.011; cost / $\bar{C}$ = 0.3238 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 1](figures/pareto_env_000/target_sst/point-00.gif) | ![Target-only SMO-SST point 2](figures/pareto_env_000/target_sst/point-01.gif) | ![Target-only SMO-SST point 3](figures/pareto_env_000/target_sst/point-02.gif) |
+
+| **Point 4**<br>risk = 107/4096 = 0.02612<br>cost = 134.678; cost / $\bar{C}$ = 0.3207 | **Point 5**<br>risk = 111/4096 = 0.02710<br>cost = 124.368; cost / $\bar{C}$ = 0.2961 | **Point 6**<br>risk = 118/4096 = 0.02881<br>cost = 123.660; cost / $\bar{C}$ = 0.2944 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 4](figures/pareto_env_000/target_sst/point-03.gif) | ![Target-only SMO-SST point 5](figures/pareto_env_000/target_sst/point-04.gif) | ![Target-only SMO-SST point 6](figures/pareto_env_000/target_sst/point-05.gif) |
+
+| **Point 7**<br>risk = 204/4096 = 0.04980<br>cost = 123.236; cost / $\bar{C}$ = 0.2934 | **Point 8**<br>risk = 224/4096 = 0.05469<br>cost = 123.025; cost / $\bar{C}$ = 0.2929 | **Point 9**<br>risk = 291/4096 = 0.07104<br>cost = 122.919; cost / $\bar{C}$ = 0.2927 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 7](figures/pareto_env_000/target_sst/point-06.gif) | ![Target-only SMO-SST point 8](figures/pareto_env_000/target_sst/point-07.gif) | ![Target-only SMO-SST point 9](figures/pareto_env_000/target_sst/point-08.gif) |
+
+| **Point 10**<br>risk = 285/4096 = 0.06958<br>cost = 122.925; cost / $\bar{C}$ = 0.2927 | **Point 11**<br>risk = 175/4096 = 0.04272<br>cost = 121.383; cost / $\bar{C}$ = 0.2890 | **Point 12**<br>risk = 450/4096 = 0.10986<br>cost = 97.172; cost / $\bar{C}$ = 0.2314 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 10](figures/pareto_env_000/target_sst/point-09.gif) | ![Target-only SMO-SST point 11](figures/pareto_env_000/target_sst/point-10.gif) | ![Target-only SMO-SST point 12](figures/pareto_env_000/target_sst/point-11.gif) |
+
+| **Point 13**<br>risk = 558/4096 = 0.13623<br>cost = 96.542; cost / $\bar{C}$ = 0.2299 | **Point 14**<br>risk = 785/4096 = 0.19165<br>cost = 96.431; cost / $\bar{C}$ = 0.2296 | **Point 15**<br>risk = 1308/4096 = 0.31934<br>cost = 95.755; cost / $\bar{C}$ = 0.2280 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 13](figures/pareto_env_000/target_sst/point-12.gif) | ![Target-only SMO-SST point 14](figures/pareto_env_000/target_sst/point-13.gif) | ![Target-only SMO-SST point 15](figures/pareto_env_000/target_sst/point-14.gif) |
+
+| **Point 16**<br>risk = 1254/4096 = 0.30615<br>cost = 95.330; cost / $\bar{C}$ = 0.2270 | **Point 17**<br>risk = 1449/4096 = 0.35376<br>cost = 94.667; cost / $\bar{C}$ = 0.2254 | **Point 18**<br>risk = 4096/4096 = 1.00000<br>cost = 92.750; cost / $\bar{C}$ = 0.2208 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-SST point 16](figures/pareto_env_000/target_sst/point-15.gif) | ![Target-only SMO-SST point 17](figures/pareto_env_000/target_sst/point-16.gif) | ![Target-only SMO-SST point 18](figures/pareto_env_000/target_sst/point-17.gif) |
+
+#### Reactive SMO-RRT (11 points)
+
+| **Point 1**<br>risk = 1/4096 = 0.00024<br>cost = 131.586; cost / $\bar{C}$ = 0.3133 | **Point 2**<br>risk = 81/4096 = 0.01978<br>cost = 130.593; cost / $\bar{C}$ = 0.3109 | **Point 3**<br>risk = 126/4096 = 0.03076<br>cost = 129.019; cost / $\bar{C}$ = 0.3072 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-RRT point 1](figures/pareto_env_000/reactive_rrt/point-00.gif) | ![Reactive SMO-RRT point 2](figures/pareto_env_000/reactive_rrt/point-01.gif) | ![Reactive SMO-RRT point 3](figures/pareto_env_000/reactive_rrt/point-02.gif) |
+
+| **Point 4**<br>risk = 503/4096 = 0.12280<br>cost = 128.227; cost / $\bar{C}$ = 0.3053 | **Point 5**<br>risk = 484/4096 = 0.11816<br>cost = 127.488; cost / $\bar{C}$ = 0.3035 | **Point 6**<br>risk = 703/4096 = 0.17163<br>cost = 127.678; cost / $\bar{C}$ = 0.3040 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-RRT point 4](figures/pareto_env_000/reactive_rrt/point-03.gif) | ![Reactive SMO-RRT point 5](figures/pareto_env_000/reactive_rrt/point-04.gif) | ![Reactive SMO-RRT point 6](figures/pareto_env_000/reactive_rrt/point-05.gif) |
+
+| **Point 7**<br>risk = 598/4096 = 0.14600<br>cost = 126.702; cost / $\bar{C}$ = 0.3017 | **Point 8**<br>risk = 2659/4096 = 0.64917<br>cost = 126.367; cost / $\bar{C}$ = 0.3009 | **Point 9**<br>risk = 3293/4096 = 0.80396<br>cost = 124.470; cost / $\bar{C}$ = 0.2964 |
+|:---:|:---:|:---:|
+| ![Reactive SMO-RRT point 7](figures/pareto_env_000/reactive_rrt/point-06.gif) | ![Reactive SMO-RRT point 8](figures/pareto_env_000/reactive_rrt/point-07.gif) | ![Reactive SMO-RRT point 9](figures/pareto_env_000/reactive_rrt/point-08.gif) |
+
+| **Point 10**<br>risk = 3490/4096 = 0.85205<br>cost = 117.152; cost / $\bar{C}$ = 0.2789 | **Point 11**<br>risk = 4096/4096 = 1.00000<br>cost = 116.221; cost / $\bar{C}$ = 0.2767 |  |
+|:---:|:---:|:---:|
+| ![Reactive SMO-RRT point 10](figures/pareto_env_000/reactive_rrt/point-09.gif) | ![Reactive SMO-RRT point 11](figures/pareto_env_000/reactive_rrt/point-10.gif) |  |
+
+#### Target-only SMO-RRT (14 points)
+
+| **Point 1**<br>risk = 12/4096 = 0.00293<br>cost = 136.102; cost / $\bar{C}$ = 0.3241 | **Point 2**<br>risk = 20/4096 = 0.00488<br>cost = 133.555; cost / $\bar{C}$ = 0.3180 | **Point 3**<br>risk = 53/4096 = 0.01294<br>cost = 132.081; cost / $\bar{C}$ = 0.3145 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-RRT point 1](figures/pareto_env_000/target_rrt/point-00.gif) | ![Target-only SMO-RRT point 2](figures/pareto_env_000/target_rrt/point-01.gif) | ![Target-only SMO-RRT point 3](figures/pareto_env_000/target_rrt/point-02.gif) |
+
+| **Point 4**<br>risk = 129/4096 = 0.03149<br>cost = 131.541; cost / $\bar{C}$ = 0.3132 | **Point 5**<br>risk = 224/4096 = 0.05469<br>cost = 130.002; cost / $\bar{C}$ = 0.3095 | **Point 6**<br>risk = 222/4096 = 0.05420<br>cost = 128.741; cost / $\bar{C}$ = 0.3065 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-RRT point 4](figures/pareto_env_000/target_rrt/point-03.gif) | ![Target-only SMO-RRT point 5](figures/pareto_env_000/target_rrt/point-04.gif) | ![Target-only SMO-RRT point 6](figures/pareto_env_000/target_rrt/point-05.gif) |
+
+| **Point 7**<br>risk = 239/4096 = 0.05835<br>cost = 128.388; cost / $\bar{C}$ = 0.3057 | **Point 8**<br>risk = 413/4096 = 0.10083<br>cost = 127.822; cost / $\bar{C}$ = 0.3043 | **Point 9**<br>risk = 441/4096 = 0.10767<br>cost = 126.953; cost / $\bar{C}$ = 0.3023 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-RRT point 7](figures/pareto_env_000/target_rrt/point-06.gif) | ![Target-only SMO-RRT point 8](figures/pareto_env_000/target_rrt/point-07.gif) | ![Target-only SMO-RRT point 9](figures/pareto_env_000/target_rrt/point-08.gif) |
+
+| **Point 10**<br>risk = 474/4096 = 0.11572<br>cost = 125.679; cost / $\bar{C}$ = 0.2992 | **Point 11**<br>risk = 1177/4096 = 0.28735<br>cost = 124.542; cost / $\bar{C}$ = 0.2965 | **Point 12**<br>risk = 3778/4096 = 0.92236<br>cost = 124.893; cost / $\bar{C}$ = 0.2974 |
+|:---:|:---:|:---:|
+| ![Target-only SMO-RRT point 10](figures/pareto_env_000/target_rrt/point-09.gif) | ![Target-only SMO-RRT point 11](figures/pareto_env_000/target_rrt/point-10.gif) | ![Target-only SMO-RRT point 12](figures/pareto_env_000/target_rrt/point-11.gif) |
+
+| **Point 13**<br>risk = 3976/4096 = 0.97070<br>cost = 119.365; cost / $\bar{C}$ = 0.2842 | **Point 14**<br>risk = 4096/4096 = 1.00000<br>cost = 109.818; cost / $\bar{C}$ = 0.2615 |  |
+|:---:|:---:|:---:|
+| ![Target-only SMO-RRT point 13](figures/pareto_env_000/target_rrt/point-12.gif) | ![Target-only SMO-RRT point 14](figures/pareto_env_000/target_rrt/point-13.gif) |  |
+
+[Point metadata (CSV)](figures/pareto_env_000/points.csv) ·
+[rendering manifest (JSON)](figures/pareto_env_000/manifest.json)
+
 The exact generation commands and source-study provenance are recorded in
 [`figures/README.md`](figures/README.md).
 

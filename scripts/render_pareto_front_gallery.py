@@ -9,8 +9,12 @@ import json
 import os
 from pathlib import Path
 
-import matplotlib
 import numpy as np
+
+os.environ.setdefault(
+    "MPLCONFIGDIR", str(Path(__file__).resolve().parents[1] / ".native" / "matplotlib")
+)
+import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -223,10 +227,27 @@ def main() -> None:
     output.mkdir(parents=True, exist_ok=True)
     style()
 
+    animation_metadata = {
+        "particles": args.particles,
+        "fps": args.fps,
+        "speed": args.speed,
+        "max_frames": args.max_frames,
+        "dpi": args.dpi,
+        "adversary_display": "particle 0 only",
+        "seed_rule": "seed_for(run.evaluation_seed, point_index, 71)",
+    }
     existing = []
     manifest_path = output / "manifest.json"
     if manifest_path.exists():
-        existing = json.loads(manifest_path.read_text()).get("points", [])
+        previous = json.loads(manifest_path.read_text())
+        if not args.overwrite:
+            if Path(previous["source_study"]).resolve() != args.study.resolve():
+                raise ValueError("existing gallery uses a different source study; use --overwrite")
+            if previous["environment"] != args.environment:
+                raise ValueError("existing gallery uses a different environment; use --overwrite")
+            if previous["animation"] != animation_metadata:
+                raise ValueError("existing gallery uses different rendering parameters; use --overwrite")
+        existing = previous.get("points", [])
     by_key = {(row["method"], row["point"]): row for row in existing}
 
     for method in methods:
@@ -239,6 +260,9 @@ def main() -> None:
         for index, (front, evaluation) in enumerate(zip(run["front"], run["evaluation"])):
             if front["node"] != evaluation["node"]:
                 raise ValueError(f"node mismatch for {method} point {index}")
+            gif_path = output / method / f"point-{index:02d}.gif"
+            if gif_path.exists() and (method, index) not in by_key and not args.overwrite:
+                raise ValueError(f"{gif_path} has no matching manifest record; use --overwrite")
             row = render_point(
                 cfg,
                 method,
@@ -269,15 +293,7 @@ def main() -> None:
             "environment": args.environment,
             "cost_reference": cfg.cost_bound,
             "fresh_evaluation_particles": cfg.evaluation_particles,
-            "animation": {
-                "particles": args.particles,
-                "fps": args.fps,
-                "speed": args.speed,
-                "max_frames": args.max_frames,
-                "dpi": args.dpi,
-                "adversary_display": "particle 0 only",
-                "seed_rule": "seed_for(run.evaluation_seed, point_index, 71)",
-            },
+            "animation": animation_metadata,
         },
     )
     print(f"wrote {len(rows)} gallery records to {output}", flush=True)

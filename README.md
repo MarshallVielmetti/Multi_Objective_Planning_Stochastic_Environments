@@ -96,6 +96,11 @@ iterations/s at `delta_w=0.00625` to 1,564 iterations/s at 0.25, then increased 
 not determine runtime, because the witness radius also changes candidate matching,
 representative replacement, and pruning work.
 
+![Witness-radius sweep summary](figures/delta_w_sweep.png)
+
+[PDF](figures/delta_w_sweep.pdf) · [SVG](figures/delta_w_sweep.svg) ·
+[plotted values](figures/delta_w_sweep.csv)
+
 ### Active-tree structure
 
 The environment-0 tree visualization shows how the active spatial structure changes
@@ -123,6 +128,11 @@ not establish better exploration. Inactive genealogical ancestors are intentiona
 omitted, so an active point without a displayed incoming edge can still have a valid
 saved policy history.
 
+![Environment 0 active trees across witness radii](figures/delta_w_trees_env_000.png)
+
+[PDF](figures/delta_w_trees_env_000.pdf) ·
+[SVG](figures/delta_w_trees_env_000.svg)
+
 ```sh
 # From code/: run all eight radii sequentially, with separate reports and manifests.
 bash configs/reactive_sst_witness_sweep/run.sh
@@ -143,7 +153,8 @@ Reports are generated separately for each radius.
 Visualize a completed sweep without rerunning the planner:
 
 ```sh
-uv run --locked python configs/reactive_sst_witness_sweep/visualize.py
+uv run --locked python configs/reactive_sst_witness_sweep/visualize.py \
+  --output figures
 
 # Optionally select a different sweep root or figure directory.
 uv run --locked python configs/reactive_sst_witness_sweep/visualize.py \
@@ -159,7 +170,8 @@ and PNG, together with the plotted values in `delta_w_sweep.csv`.
 Plot the final active-node trees for a selected zero-based environment ID:
 
 ```sh
-uv run --locked python configs/reactive_sst_witness_sweep/visualize_trees.py 0
+uv run --locked python configs/reactive_sst_witness_sweep/visualize_trees.py 0 \
+  --output figures
 
 # Select a different grid width or output directory.
 uv run --locked python configs/reactive_sst_witness_sweep/visualize_trees.py 3 \
@@ -172,6 +184,63 @@ layout, launcher ranges, start, target, and sampling-region boundary are repeate
 every panel. Dense tree layers are rasterized inside the otherwise vector PDF/SVG so
 the paper-ready files remain compact. Incomplete radii are reported and skipped, so
 the command is also safe to use while later sweep values are still running.
+
+## Held-out figure gallery
+
+The `figures/` directory contains presentation artifacts derived from saved runs; raw
+run JSON, tree arrays, and reports remain under `runs/`. The planner-comparison figures
+below use the manuscript-aligned `paper_final_improved_witness` study: 30 paired
+environments, a 120-second budget per method and environment, witness radius 0.25 for
+SMO-SST, and independent replay of each selected portfolio with 4096 particles.
+
+### Aggregate planner comparison
+
+The normalized-hypervolume figure reports means and 95% environment-bootstrap
+confidence intervals for the construction fronts and fresh evaluation of the frozen
+selected portfolios.
+
+![Normalized hypervolume by planner](figures/paper/nhv.png)
+
+[PDF](figures/paper/nhv.pdf) · [SVG](figures/paper/nhv.svg)
+
+The progress curves show mean construction nHV over planner wall time. Bands are
+environment interquartile ranges, not confidence intervals.
+
+![Construction nHV over wall time](figures/paper/progress.png)
+
+[PDF](figures/paper/progress.pdf) · [SVG](figures/paper/progress.svg)
+
+### Representative Pareto fronts
+
+The following plot compares the fresh-evaluation Pareto fronts returned by all four
+baseline planners in paired environment 0. It is one environment-level example rather
+than an aggregate performance comparison; the 30-environment nHV intervals above carry
+the population-level comparison used in the manuscript.
+
+![Fresh-evaluation Pareto fronts in environment 0](figures/paper/fronts-000.png)
+
+[PDF](figures/paper/fronts-000.pdf) · [SVG](figures/paper/fronts-000.svg)
+
+### Representative fresh-rollout animations
+
+Each animation replays the saved environment-0 policy with the largest single-policy
+fresh-evaluation hypervolume rectangle. All four use 32 new particles and seed 98765;
+they visualize representative stochastic trajectories rather than construction samples
+or additional statistical trials. Red particle markers indicate capture, and the red
+crosses show active adversaries for particle 1 only.
+
+| Reactive SMO-SST | Target-only SMO-SST |
+|:---:|:---:|
+| ![Reactive SMO-SST fresh rollout](figures/paper/trajectory-000-reactive_sst-point5.gif) | ![Target-only SMO-SST fresh rollout](figures/paper/trajectory-000-target_sst-point5.gif) |
+| [PNG](figures/paper/trajectory-000-reactive_sst-point5.png) · [PDF](figures/paper/trajectory-000-reactive_sst-point5.pdf) · [SVG](figures/paper/trajectory-000-reactive_sst-point5.svg) · [metadata](figures/paper/trajectory-000-reactive_sst-point5.json) | [PNG](figures/paper/trajectory-000-target_sst-point5.png) · [PDF](figures/paper/trajectory-000-target_sst-point5.pdf) · [SVG](figures/paper/trajectory-000-target_sst-point5.svg) · [metadata](figures/paper/trajectory-000-target_sst-point5.json) |
+
+| Reactive SMO-RRT | Target-only SMO-RRT |
+|:---:|:---:|
+| ![Reactive SMO-RRT fresh rollout](figures/paper/trajectory-000-reactive_rrt-point0.gif) | ![Target-only SMO-RRT fresh rollout](figures/paper/trajectory-000-target_rrt-point1.gif) |
+| [PNG](figures/paper/trajectory-000-reactive_rrt-point0.png) · [PDF](figures/paper/trajectory-000-reactive_rrt-point0.pdf) · [SVG](figures/paper/trajectory-000-reactive_rrt-point0.svg) · [metadata](figures/paper/trajectory-000-reactive_rrt-point0.json) | [PNG](figures/paper/trajectory-000-target_rrt-point1.png) · [PDF](figures/paper/trajectory-000-target_rrt-point1.pdf) · [SVG](figures/paper/trajectory-000-target_rrt-point1.svg) · [metadata](figures/paper/trajectory-000-target_rrt-point1.json) |
+
+The exact generation commands and source-study provenance are recorded in
+[`figures/README.md`](figures/README.md).
 
 ## Figures and GIF interface
 

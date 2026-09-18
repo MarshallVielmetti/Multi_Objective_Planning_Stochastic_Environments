@@ -1,0 +1,18 @@
+# Current paper values plus explicitly documented numerical completions.
+# The predecessor's metric/pruning is different: its radius is NOT transferable.
+environments = 30
+seconds = 120.0
+particles = 256
+evaluation_particles = 4096
+bootstrap_resamples = 10000
+seed = 2000
+dt = 0.1
+vmax = 1.0
+amax = 0.5
+omega_max = 0.3
+max_depth = 20
+tau_max = 100
+witness_radius = 0.25
+risk_resolution = 0.01
+shortlist = 8
+distance = "bounded"

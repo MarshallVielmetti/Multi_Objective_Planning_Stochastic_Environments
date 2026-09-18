@@ -1,0 +1,26 @@
+# Select the additional group with --methods predictive_sst.
+# Physical dynamics and planner settings match paper.toml.
+environments = 3
+seconds = 60.0
+particles = 256
+evaluation_particles = 4096
+bootstrap_resamples = 10000
+seed = 2000
+dt = 0.1
+vmax = 1.0
+amax = 0.5
+omega_max = 0.3
+max_depth = 40
+tau_max = 100
+witness_radius = 0.025
+risk_resolution = 0.01
+shortlist = 8
+distance = "bounded"
+
+predictive_horizon = 4.0                 # seconds
+predictive_guard_radius = 1.0            # position units; soft miss-distance scale
+predictive_velocity_epsilon = 0.1        # speed units
+predictive_urgency_time = 2.0             # seconds
+predictive_radial_max = 2.0
+predictive_tangential_max = 2.0
+predictive_baseline_probability = 0.2     # atom at both gains equal to zero

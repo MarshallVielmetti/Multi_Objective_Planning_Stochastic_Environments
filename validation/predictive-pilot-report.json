@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "environments": 8,
+  "reference": [
+    1.0,
+    420.0
+  ],
+  "methods": {
+    "reactive_sst": {
+      "nhv": {
+        "mean": 0.6614355734279617,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.6352131852558753,
+        "high": 0.6815123197637378,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": 0.6605148469827571,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.6341965327011785,
+        "high": 0.6802834274225569,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations": {
+        "mean": 5617.375,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 5457.25,
+        "high": 5769.0,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "nodes": {
+        "mean": 3645.375,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 3313.981853083785,
+        "high": 3947.625,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations_per_second": {
+        "mean": 1872.3029107550524,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 1819.3007385834428,
+        "high": 1922.9719908547613,
+        "method": "BCa bootstrap over paired environments"
+      }
+    },
+    "target_sst": {
+      "nhv": {
+        "mean": 0.6548539186122201,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.6299187811433546,
+        "high": 0.6765411030762988,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": 0.6539224513696695,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.6292724922064106,
+        "high": 0.6762085229145517,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations": {
+        "mean": 5659.25,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 5441.5,
+        "high": 5831.275251899236,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "nodes": {
+        "mean": 3818.875,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 3418.0993521039522,
+        "high": 4152.364757424772,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations_per_second": {
+        "mean": 1886.2358835754412,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 1813.7295701617904,
+        "high": 1943.7119154806155,
+        "method": "BCa bootstrap over paired environments"
+      }
+    },
+    "predictive_sst": {
+      "nhv": {
+        "mean": 0.6586800483000422,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.631335535587682,
+        "high": 0.6799969435489391,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": 0.6572545522623889,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 0.6303429312037676,
+        "high": 0.6784677554356752,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations": {
+        "mean": 5575.125,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 5472.625,
+        "high": 5716.658617673537,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "nodes": {
+        "mean": 3574.625,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 3024.8396446959478,
+        "high": 3913.625,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "iterations_per_second": {
+        "mean": 1858.2252605937738,
+        "n": 8,
+        "confidence": 0.95,
+        "low": 1823.3438563169343,
+        "high": 1905.4005829392538,
+        "method": "BCa bootstrap over paired environments"
+      }
+    }
+  },
+  "paired_differences": {
+    "reactive_sst - target_sst": {
+      "nhv": {
+        "mean": 0.006581654815741592,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.0003987212635698373,
+        "high": 0.014016902485452232,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": 0.006592395613087554,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.00023714179715373724,
+        "high": 0.013248013507291349,
+        "method": "BCa bootstrap over paired environments"
+      }
+    },
+    "reactive_sst - predictive_sst": {
+      "nhv": {
+        "mean": 0.0027555251279194476,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.002584556797325407,
+        "high": 0.007324836426338235,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": 0.0032602947203682203,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.002210274637137794,
+        "high": 0.0077724521201168045,
+        "method": "BCa bootstrap over paired environments"
+      }
+    },
+    "target_sst - predictive_sst": {
+      "nhv": {
+        "mean": -0.003826129687822144,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.01165106968924416,
+        "high": 0.0024609690943576466,
+        "method": "BCa bootstrap over paired environments"
+      },
+      "evaluation_nhv": {
+        "mean": -0.0033321008927193335,
+        "n": 8,
+        "confidence": 0.95,
+        "low": -0.009527678379755225,
+        "high": 0.0026862878806488723,
+        "method": "BCa bootstrap over paired environments"
+      }
+    }
+  },
+  "provenance": {
+    "source_sha256": "945b51d5b6cc8469a649121af15d4adae3970d05b5f519dcc96b094c9e208505",
+    "python": "3.12.13 (main, Mar  3 2026, 12:39:30) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "pillow": "12.3.0"
+    },
+    "compiler": "c++",
+    "build_flags": "-O3 -std=c++17 -shared -fPIC -pthread"
+  }
+}

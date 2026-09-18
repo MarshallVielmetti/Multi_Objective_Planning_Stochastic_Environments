@@ -1,0 +1,11 @@
+**/*.DS_Store
+runs/
+.pytest_cache/
+.native/
+.venv/
+PREDICTIVE_POLICY.md
+
+**/__pycache__/
+
+smo_sst_experiments.egg-info
+

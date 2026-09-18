@@ -1,0 +1,20 @@
+# Reactive SMO-SST witness-radius sweep: 5 paired environments, 150k iterations each.
+# Run with --methods reactive_sst, or use run.sh in this directory.
+# All other settings match paper.toml; iterations overrides the seconds cap.
+environments = 5
+iterations = 150000
+seconds = 120.0
+particles = 256
+evaluation_particles = 4096
+bootstrap_resamples = 10000
+seed = 2000
+dt = 0.1
+vmax = 1.0
+amax = 0.5
+omega_max = 0.3
+max_depth = 20
+tau_max = 100
+witness_radius = 0.05
+risk_resolution = 0.01
+shortlist = 8
+distance = "bounded"

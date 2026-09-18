@@ -1,0 +1,8 @@
+# Short validation study, using seeds separate from the main experiment.
+environments = 8
+seconds = 3.0
+particles = 256
+evaluation_particles = 1024
+bootstrap_resamples = 10000
+checkpoint_seconds = 0.5
+seed = 1000
